@@ -159,7 +159,7 @@ section[id],[id].anchor{scroll-margin-top:84px}
 .float b{display:block;font-weight:500;color:var(--ink)}
 .float small{color:var(--muted);font-size:12px}
 .float .ico{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:var(--cyan-soft);color:var(--cyan);flex:none}
-.float-a{top:12%;left:-56px;animation:bob 6s ease-in-out infinite}
+.float-a{top:22%;left:-56px;animation:bob 6s ease-in-out infinite}
 .float-b{bottom:10%;right:-34px;animation:bob 6s ease-in-out -3s infinite}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 
@@ -409,6 +409,50 @@ section[id],[id].anchor{scroll-margin-top:84px}
 .hcap{margin-top:34px;font-size:12.5px;color:var(--faint)}
 .js .year:not(.in) .hb i{transform:scaleY(.05)}
 
+
+/* ====== capa "viva" ====== */
+@property --ang{syntax:'<angle>';initial-value:0deg;inherits:false}
+.progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:70;transform-origin:left;transform:scaleX(0);background:linear-gradient(90deg,var(--cyan),var(--odoo),var(--gws),var(--web));pointer-events:none}
+/* palabra que rota en el titular */
+.rot{display:block;width:max-content;max-width:100%;position:relative;background:linear-gradient(90deg,var(--cyan),var(--odoo));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;transition:opacity .35s ease,transform .35s ease,filter .35s ease}
+.rot::after{content:"";position:absolute;left:0;right:0;bottom:.02em;height:.09em;border-radius:4px;background:linear-gradient(90deg,var(--cyan),var(--odoo));opacity:.55}
+.rot.out{opacity:0;transform:translateY(.25em);filter:blur(6px)}
+/* auroras del hero */
+.aur{position:absolute;border-radius:50%;filter:blur(70px);opacity:.38;pointer-events:none}
+.aur.a1{width:420px;height:420px;right:4%;top:6%;background:rgba(63,200,216,.55);animation:drift1 16s ease-in-out infinite}
+.aur.a2{width:360px;height:360px;right:22%;bottom:-6%;background:rgba(167,139,250,.5);animation:drift2 19s ease-in-out infinite}
+.aur.a3{width:300px;height:300px;left:-6%;bottom:6%;background:rgba(52,211,153,.28);animation:drift1 22s ease-in-out -6s infinite}
+@keyframes drift1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-40px,30px) scale(1.12)}}
+@keyframes drift2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(50px,-30px) scale(.9)}}
+/* notificaciones que cambian */
+.float .swap{transition:opacity .35s ease,transform .35s ease}
+.float .swap.out{opacity:0;transform:translateY(6px)}
+.float-c{top:-26px;right:-26px;animation:bob 6s ease-in-out -1.5s infinite}
+.float-c .ico{background:var(--odoo-soft);color:var(--odoo)}
+.float-b .ico{background:var(--gws-soft);color:var(--gws)}
+.pulse{position:relative}
+.pulse::after{content:"";position:absolute;inset:-4px;border-radius:12px;border:2px solid currentColor;opacity:0;animation:ping 2.4s ease-out infinite}
+@keyframes ping{0%{transform:scale(.85);opacity:.6}80%,100%{transform:scale(1.25);opacity:0}}
+/* cinta de tecnologías */
+.marquee{position:relative;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(15,44,68,.5);padding:16px 0;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.mq-track{display:flex;width:max-content;animation:mq 46s linear infinite}
+.marquee:hover .mq-track{animation-play-state:paused}
+.mq-track ul{display:flex;gap:38px;padding-right:38px;list-style:none;margin:0}
+.mq-track li{display:inline-flex;align-items:center;gap:10px;white-space:nowrap;font-family:var(--display);font-size:15px;letter-spacing:.01em;color:var(--body)}
+.mq-track li i{width:8px;height:8px;border-radius:50%;background:var(--c,var(--cyan));box-shadow:0 0 12px var(--c,var(--cyan))}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* foco de luz que sigue al mouse en tarjetas */
+.spot{position:relative}
+.spot>.glow{position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s ease;background:radial-gradient(380px circle at var(--mx,50%) var(--my,50%),rgba(63,200,216,.13),transparent 45%);z-index:0}
+.spot:hover>.glow{opacity:1}
+/* borde animado en degradé */
+.ring{border:1.5px solid transparent!important;background:linear-gradient(var(--navy-2),var(--navy-2)) padding-box,conic-gradient(from var(--ang),var(--cyan),var(--odoo),var(--gws),var(--web),var(--gob),var(--cyan)) border-box!important;animation:spinb 7s linear infinite}
+@keyframes spinb{to{--ang:360deg}}
+/* terminal que escribe */
+.js .term-b>div{opacity:0;transform:translateX(-6px)}
+.js .dp.in .term-b>div{animation:lineIn .35s ease forwards;animation-delay:calc(var(--i) * .55s + .3s)}
+@keyframes lineIn{to{opacity:1;transform:none}}
+
 /* casos */
 .cases{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 .case{padding:clamp(24px,3vw,34px);display:flex;flex-direction:column;gap:16px}
@@ -562,6 +606,8 @@ a.ci:hover{border-color:var(--cyan);color:var(--ink);background:rgba(11,31,51,.9
   .hero{padding-top:32px}
   .portrait{max-width:250px}
   .float{padding:10px 12px;font-size:12px}
+  .float-c{display:none}
+  .aur{opacity:.25}
   .float .ico{width:30px;height:30px}
   .float-a{left:-18px}.float-b{right:-18px}
   .hero-ctas .btn{flex:1 1 100%}
@@ -601,6 +647,10 @@ a.ci:hover{border-color:var(--cyan);color:var(--ink);background:rgba(11,31,51,.9
   .js .rv{opacity:1;transform:none}
   .js .bento:not(.in) .bar i{transform:none}
   .js .year:not(.in) .hb i{transform:none}
+  .js .term-b>div{opacity:1;transform:none}
+  .mq-track{width:auto;flex-wrap:wrap}
+  .mq-track ul[aria-hidden]{display:none}
+  .aur{display:none}
   .js .steps:not(.in)::before{transform:none}
 }
 @media print{
@@ -612,6 +662,7 @@ a.ci:hover{border-color:var(--cyan);color:var(--ink);background:rgba(11,31,51,.9
 </head>
 <body>
 <a class="skip" href="#contenido">Saltar al contenido</a>
+<div class="progress" id="progress" aria-hidden="true"></div>
 
 <!-- ================= NAV ================= -->
 <header class="nav" id="nav">
@@ -648,12 +699,12 @@ a.ci:hover{border-color:var(--cyan);color:var(--ink);background:rgba(11,31,51,.9
 
 <!-- ================= HERO ================= -->
 <section class="hero" id="top" aria-labelledby="hero-title">
-  <div class="hero-bg" data-net aria-hidden="true"></div>
+  <div class="hero-bg" data-net aria-hidden="true"><span class="aur a1"></span><span class="aur a2"></span><span class="aur a3"></span></div>
   <div class="wrap">
     <div class="hero-grid">
       <div>
         <span class="pill"><span class="dot"></span>Trabajo por proyecto · Asunción, Paraguay</span>
-        <h1 id="hero-title">Automatizo el trabajo manual de tu empresa.<span class="accent">Con Odoo y Google Workspace.</span></h1>
+        <h1 id="hero-title">Automatizo <span class="rot" id="rot" data-words="el trabajo manual|los reportes|las planillas|los controles|la carga de datos">el trabajo manual</span> de tu empresa.<span class="accent">Con Odoo y Google Workspace.</span></h1>
         <p class="lede">Soy <strong translate="no">Facundo Colman</strong>, analista de sistemas y responsable de TI. Conecto tu ERP con tus planillas, armo tableros que se actualizan solos y dejo cada proceso <strong>documentado</strong>, para que funcione sin depender de nadie — tampoco de mí.</p>
         <div class="hero-ctas">
           <a class="btn btn-primary" href="https://wa.me/595991635438?text=Hola%20Facundo%2C%20vi%20tu%20sitio%20y%20quer%C3%ADa%20consultarte%20por%20automatizaci%C3%B3n." target="_blank" rel="noopener">
@@ -681,11 +732,15 @@ a.ci:hover{border-color:var(--cyan);color:var(--ink);background:rgba(11,31,51,.9
         </div>
         <div class="float float-a" aria-hidden="true">
           <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></span>
-          <span><b>Reporte de ventas</b><small>actualizado solo · hace 2 min</small></span>
+          <span class="swap" data-msgs="Reporte de ventas~actualizado solo · hace 2 min|Stock sincronizado~3.500 productos al día|Recibos de sueldo~generados sin errores|Lista de precios~publicada automáticamente"><b>Reporte de ventas</b><small>actualizado solo · hace 2 min</small></span>
+        </div>
+        <div class="float float-c" aria-hidden="true">
+          <span class="ico pulse"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></span>
+          <span class="swap" data-msgs="Automatización ejecutada~regla en Odoo · ahora|Script corrió OK~sincronización de las 07:00|Tablero actualizado~datos del ERP · en vivo"><b>Automatización ejecutada</b><small>regla en Odoo · ahora</small></span>
         </div>
         <div class="float float-b" aria-hidden="true">
           <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
-          <span><b>Pedido resuelto</b><small>dentro del plazo acordado</small></span>
+          <span class="swap" data-msgs="Pedido resuelto~ticket cerrado y avisado|Alerta enviada~muestrario fuera de plazo|Ticket nuevo~asignado y priorizado|Manual entregado~PDF + video"><b>Pedido resuelto</b><small>ticket cerrado y avisado</small></span>
         </div>
       </div>
     </div>
@@ -699,10 +754,14 @@ a.ci:hover{border-color:var(--cyan);color:var(--ink);background:rgba(11,31,51,.9
   </div>
 </section>
 
+<div class="marquee" aria-label="Tecnologías con las que trabajo">
+  <div class="mq-track"><ul><li style="--c:var(--odoo)"><i></i>Odoo 17</li><li style="--c:var(--gws)"><i></i>Google Workspace</li><li style="--c:var(--gws)"><i></i>Apps Script</li><li style="--c:var(--web)"><i></i>Next.js</li><li style="--c:var(--web)"><i></i>Supabase</li><li style="--c:var(--web)"><i></i>Vercel</li><li style="--c:var(--web)"><i></i>Python</li><li style="--c:var(--odoo)"><i></i>Facturación electrónica SIFEN</li><li style="--c:var(--odoo)"><i></i>Studio y QWeb</li><li style="--c:var(--cyan)"><i></i>Claude Code</li><li style="--c:var(--web)"><i></i>GitHub Actions</li><li style="--c:var(--gob)"><i></i>Gobierno de TI</li><li style="--c:var(--gob)"><i></i>Seguridad de la información</li><li style="--c:var(--gws)"><i></i>Mesa de ayuda</li><li style="--c:var(--cyan)"><i></i>Tableros en vivo</li></ul><ul aria-hidden="true"><li style="--c:var(--odoo)"><i></i>Odoo 17</li><li style="--c:var(--gws)"><i></i>Google Workspace</li><li style="--c:var(--gws)"><i></i>Apps Script</li><li style="--c:var(--web)"><i></i>Next.js</li><li style="--c:var(--web)"><i></i>Supabase</li><li style="--c:var(--web)"><i></i>Vercel</li><li style="--c:var(--web)"><i></i>Python</li><li style="--c:var(--odoo)"><i></i>Facturación electrónica SIFEN</li><li style="--c:var(--odoo)"><i></i>Studio y QWeb</li><li style="--c:var(--cyan)"><i></i>Claude Code</li><li style="--c:var(--web)"><i></i>GitHub Actions</li><li style="--c:var(--gob)"><i></i>Gobierno de TI</li><li style="--c:var(--gob)"><i></i>Seguridad de la información</li><li style="--c:var(--gws)"><i></i>Mesa de ayuda</li><li style="--c:var(--cyan)"><i></i>Tableros en vivo</li></ul></div>
+</div>
+
 <!-- ================= UN AÑO EN CAMPING 44 ================= -->
-<section class="sec" id="camping44" aria-labelledby="t-year" style="padding-top:0">
+<section class="sec" id="camping44" aria-labelledby="t-year">
   <div class="wrap">
-    <div class="year rv">
+    <div class="year ring rv">
       <div class="year-top">
         <div>
           <span class="kicker"><b>NOV 2025 – NOV 2026</b>Experiencia destacada</span>
@@ -1020,12 +1079,12 @@ a.ci:hover{border-color:var(--cyan);color:var(--ink);background:rgba(11,31,51,.9
         <div class="term" aria-hidden="true">
           <div class="term-bar"><i></i><i></i><i></i><span>sesión de desarrollo · ejemplo</span></div>
           <div class="term-b">
-            <div><span class="u">›</span> El reporte de stock tiene que excluir los depósitos no vendibles</div>
-            <div class="dim">  revisando depósitos y reglas del reporte…</div>
-            <div><span class="ok">✓</span> Regla aplicada en el reporte</div>
-            <div><span class="ok">✓</span> Prueba contra los datos de ayer: OK</div>
-            <div><span class="ok">✓</span> Instructivo actualizado</div>
-            <div><span class="u">›</span> <span class="cur"></span></div>
+            <div style="--i:0"><span class="u">›</span> El reporte de stock tiene que excluir los depósitos no vendibles</div>
+            <div style="--i:1" class="dim">  revisando depósitos y reglas del reporte…</div>
+            <div style="--i:2"><span class="ok">✓</span> Regla aplicada en el reporte</div>
+            <div style="--i:3"><span class="ok">✓</span> Prueba contra los datos de ayer: OK</div>
+            <div style="--i:4"><span class="ok">✓</span> Instructivo actualizado</div>
+            <div style="--i:5"><span class="u">›</span> <span class="cur"></span></div>
           </div>
         </div>
       </article>
@@ -1241,7 +1300,7 @@ a.ci:hover{border-color:var(--cyan);color:var(--ink);background:rgba(11,31,51,.9
 <!-- ================= CONTACTO ================= -->
 <section class="sec" id="contacto" aria-labelledby="t-contacto">
   <div class="wrap">
-    <div class="contact rv">
+    <div class="contact ring rv">
       <div class="script" aria-hidden="true">Hablemos</div>
       <h2 id="t-contacto">Contame tu proceso y te digo qué se puede automatizar</h2>
       <p class="sub">Si querés que tu equipo deje de hacer a mano lo que puede hacer un sistema, o necesitás a alguien que ordene y sostenga tu área de TI, escribime.</p>
@@ -1326,6 +1385,82 @@ a.ci:hover{border-color:var(--cyan);color:var(--ink);background:rgba(11,31,51,.9
     });
     more.addEventListener('click', function () { expanded = true; apply(); cards[LIMIT] && cards[LIMIT].querySelector('h3') && cards[LIMIT].setAttribute('tabindex','-1'); cards[LIMIT] && cards[LIMIT].focus({ preventScroll: true }); });
     apply();
+  }
+
+
+  // Barra de progreso de lectura
+  var bar = document.getElementById('progress');
+  var onProg = function () {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.transform = 'scaleX(' + (h > 0 ? Math.min(1, window.scrollY / h) : 0) + ')';
+  };
+  onProg(); window.addEventListener('scroll', onProg, { passive: true });
+
+  // Contadores que suben al aparecer
+  var fmt = new Intl.NumberFormat('es-PY');
+  var counters = document.querySelectorAll('.stat .n, .yn .n, .hst b');
+  var runCount = function (el) {
+    var node = el.firstChild; if (!node || node.nodeType !== 3) return;
+    var raw = node.nodeValue, m = raw.match(/^(\d[\d.]*)(.*)$/); if (!m) return;
+    var target = parseInt(m[1].replace(/\./g, ''), 10), rest = m[2], t0 = null;
+    if (!(target > 1)) return;
+    var step = function (ts) {
+      if (!t0) t0 = ts;
+      var p = Math.min(1, (ts - t0) / 1300), v = Math.round(target * (1 - Math.pow(1 - p, 4)));
+      node.nodeValue = fmt.format(v) + rest;
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+  if (!reduce && hasIO) {
+    var cio = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { runCount(e.target); cio.unobserve(e.target); } });
+    }, { threshold: 0.6 });
+    counters.forEach(function (c) { cio.observe(c); });
+  }
+
+  // Palabra que rota en el titular
+  var rot = document.getElementById('rot');
+  if (rot && !reduce) {
+    var words = rot.getAttribute('data-words').split('|'), wi = 0;
+    rot.setAttribute('aria-hidden', 'true');
+    var h1 = document.getElementById('hero-title');
+    var sr = document.createElement('span'); sr.className = 'sr'; sr.textContent = 'el trabajo manual';
+    h1.insertBefore(sr, rot);
+    setInterval(function () {
+      rot.classList.add('out');
+      setTimeout(function () { wi = (wi + 1) % words.length; rot.textContent = words[wi]; rot.classList.remove('out'); }, 360);
+    }, 2600);
+  }
+
+  // Notificaciones del hero que cambian
+  if (!reduce) {
+    document.querySelectorAll('.float .swap').forEach(function (el, k) {
+      var msgs = el.getAttribute('data-msgs').split('|'), i = 0;
+      setTimeout(function () {
+        setInterval(function () {
+          el.classList.add('out');
+          setTimeout(function () {
+            i = (i + 1) % msgs.length; var p = msgs[i].split('~');
+            el.querySelector('b').textContent = p[0]; el.querySelector('small').textContent = p[1];
+            el.classList.remove('out');
+          }, 360);
+        }, 3400);
+      }, k * 1100);
+    });
+  }
+
+  // Foco de luz que sigue al mouse en las tarjetas
+  if (!reduce && window.matchMedia('(hover: hover)').matches) {
+    document.querySelectorAll('.card, .pj').forEach(function (c) {
+      c.classList.add('spot');
+      var g = document.createElement('span'); g.className = 'glow'; g.setAttribute('aria-hidden', 'true'); c.appendChild(g);
+      c.addEventListener('pointermove', function (e) {
+        var r = c.getBoundingClientRect();
+        c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      });
+    });
   }
 
   // Nav: borde al scrollear
