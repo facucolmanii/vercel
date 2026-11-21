@@ -367,6 +367,31 @@ section[id],[id].anchor{scroll-margin-top:84px}
 .faq details[open] summary::after{transform:rotate(-135deg) translate(-3px,-3px)}
 .faq details p{padding:0 24px 22px;color:var(--body);font-size:15.5px;line-height:1.65;max-width:72ch}
 
+
+/* año en Camping 44 */
+.year{position:relative;border-radius:28px;padding:clamp(28px,5vw,56px);overflow:hidden;isolation:isolate;border:1px solid var(--line-2);background:var(--navy-2)}
+.year::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(600px 380px at 0% 0%,rgba(63,200,216,.16),transparent 65%),radial-gradient(520px 360px at 100% 100%,rgba(167,139,250,.14),transparent 65%)}
+.year-top{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(28px,4vw,56px);align-items:center}
+.year .kicker{display:inline-flex;flex-wrap:wrap;align-items:center;gap:10px;font-size:13px;color:var(--body);padding:6px 14px 6px 10px;border-radius:999px;border:1px solid var(--line-2);background:rgba(11,31,51,.6)}
+.year .kicker b{font-family:var(--display);font-weight:400;font-size:11.5px;letter-spacing:.06em;color:var(--navy);background:var(--cyan);padding:3px 9px;border-radius:999px;white-space:nowrap}
+.year h2{margin-top:18px;font-size:clamp(30px,4vw,48px)}
+.year h2 span{color:var(--cyan)}
+.year .lead{margin-top:16px;font-size:clamp(16.5px,1.4vw,18.5px);line-height:1.65;color:var(--body);max-width:56ch}
+.year .lead strong{color:var(--ink);font-weight:500}
+.ynums{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.yn{--a:var(--cyan);padding:20px 22px;border-radius:16px;background:rgba(11,31,51,.72);border:1px solid var(--line);position:relative;overflow:hidden}
+.yn::after{content:"";position:absolute;right:-30px;top:-30px;width:90px;height:90px;border-radius:50%;background:var(--a);opacity:.12}
+.yn:nth-child(2){--a:var(--odoo)}.yn:nth-child(3){--a:var(--gws)}.yn:nth-child(4){--a:var(--web)}
+.yn .n{font-family:var(--display);font-size:clamp(30px,3vw,40px);line-height:1;color:var(--a);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.yn .l{margin-top:8px;font-size:13.5px;line-height:1.4;color:var(--body);overflow-wrap:break-word}
+.ychg{margin-top:clamp(28px,4vw,44px);display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.yc{padding:18px 18px 16px;border-radius:14px;border:1px solid var(--line);background:rgba(11,31,51,.5)}
+.yc .from{font-size:13px;color:var(--faint);text-decoration:line-through;text-decoration-color:rgba(251,113,133,.6)}
+.yc .arrow{display:block;margin:6px 0;color:var(--cyan);font-size:14px}
+.yc .to{font-size:15px;line-height:1.4;color:var(--ink);font-weight:500}
+.year-cta{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.year-cta small{color:var(--faint);font-size:13px}
+
 /* casos */
 .cases{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 .case{padding:clamp(24px,3vw,34px);display:flex;flex-direction:column;gap:16px}
@@ -485,6 +510,8 @@ a.ci:hover{border-color:var(--cyan);color:var(--ink);background:rgba(11,31,51,.9
   .flow{grid-template-columns:repeat(3,1fr);row-gap:32px}
   .flow::before{display:none}
   .diff{grid-template-columns:1fr}
+  .year-top{grid-template-columns:1fr}
+  .ychg{grid-template-columns:1fr 1fr}
   .contact-grid{grid-template-columns:1fr 1fr}
   .contact-grid .ci:first-child{grid-column:span 2}
   .tools{grid-template-columns:1fr 1fr}
@@ -525,6 +552,10 @@ a.ci:hover{border-color:var(--cyan);color:var(--ink);background:rgba(11,31,51,.9
   .b-2,.b-cta{grid-column:span 6}
   .steps,.pillars{grid-template-columns:1fr}
   .pj-grid{grid-template-columns:1fr}
+  .ychg{grid-template-columns:1fr}
+  .yn{padding:16px}
+  .yn .l{font-size:12.5px}
+  .year .kicker{border-radius:14px}
   .flow{grid-template-columns:1fr;gap:22px}
   .fs{display:grid;grid-template-columns:56px 1fr;column-gap:16px}
   .fs .fn{grid-row:span 2}
@@ -569,6 +600,7 @@ a.ci:hover{border-color:var(--cyan);color:var(--ink);background:rgba(11,31,51,.9
       Facundo Colman
     </a>
     <nav class="nav-links" aria-label="Secciones">
+      <a href="#camping44">Experiencia</a>
       <a href="#servicios">Servicios</a>
       <a href="#proyectos">Proyectos</a>
       <a href="#casos">Casos</a>
@@ -579,6 +611,7 @@ a.ci:hover{border-color:var(--cyan);color:var(--ink);background:rgba(11,31,51,.9
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu-movil" aria-label="Abrir menú"><span></span></button>
   </div>
   <nav class="mobile-menu" id="menu-movil" aria-label="Secciones" hidden>
+    <a href="#camping44">Experiencia</a>
     <a href="#servicios">Servicios</a>
     <a href="#desarrollos">Desarrollos</a>
     <a href="#proyectos">Proyectos</a>
@@ -641,6 +674,37 @@ a.ci:hover{border-color:var(--cyan);color:var(--ink);background:rgba(11,31,51,.9
       <div class="stat" role="listitem"><div class="n">3.500<em>+</em></div><div class="l">productos sincronizados con el ERP</div></div>
       <div class="stat" role="listitem"><div class="n">9</div><div class="l">sedes sostenidas por una sola persona</div></div>
       <div class="stat" role="listitem"><div class="n">30</div><div class="l">sistemas y automatizaciones construidos</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= UN AÑO EN CAMPING 44 ================= -->
+<section class="sec" id="camping44" aria-labelledby="t-year" style="padding-top:0">
+  <div class="wrap">
+    <div class="year rv">
+      <div class="year-top">
+        <div>
+          <span class="kicker"><b>NOV 2025 – NOV 2026</b>Experiencia destacada</span>
+          <h2 id="t-year">Mi primer año en <span>Camping 44</span></h2>
+          <p class="lead">Llegué en noviembre de 2025 como <strong>responsable único de TI</strong>, reportando a la gerencia general. En doce meses el área pasó de funcionar por costumbre a tener <strong>plan, procesos aprobados, indicadores y herramientas propias</strong>, sin frenar la operación.</p>
+        </div>
+        <div class="ynums" role="list">
+          <div class="yn" role="listitem"><div class="n">30</div><div class="l">proyectos en un año</div></div>
+          <div class="yn" role="listitem"><div class="n">11</div><div class="l">controles automáticos en Odoo</div></div>
+          <div class="yn" role="listitem"><div class="n">5</div><div class="l">tableros de gestión por área</div></div>
+          <div class="yn" role="listitem"><div class="n">1</div><div class="l">intranet propia, en lugar de un software contratado</div></div>
+        </div>
+      </div>
+      <div class="ychg" role="list" aria-label="Qué cambió en el año">
+        <div class="yc" role="listitem"><span class="from">Sin plan de TI</span><span class="arrow" aria-hidden="true">↓</span><span class="to">Plan estratégico con metas trimestrales</span></div>
+        <div class="yc" role="listitem"><span class="from">Pedidos por WhatsApp</span><span class="arrow" aria-hidden="true">↓</span><span class="to">Mesa de ayuda con plazos e indicadores</span></div>
+        <div class="yc" role="listitem"><span class="from">Controles a mano</span><span class="arrow" aria-hidden="true">↓</span><span class="to">Reglas automáticas en el ERP</span></div>
+        <div class="yc" role="listitem"><span class="from">Software contratado</span><span class="arrow" aria-hidden="true">↓</span><span class="to">Intranet y apps propias</span></div>
+      </div>
+      <div class="year-cta">
+        <a class="btn btn-primary" href="#proyectos">Ver todo lo que construí</a>
+        <small>Sin datos internos ni de clientes.</small>
+      </div>
     </div>
   </div>
 </section>
@@ -960,25 +1024,25 @@ a.ci:hover{border-color:var(--cyan);color:var(--ink);background:rgba(11,31,51,.9
     </div>
     <div class="cases">
       <article class="card hov case k-gob rv">
-        <div class="case-ctx"><span class="n">01</span>Empresa comercial regulada · área de TI</div>
+        <div class="case-ctx"><span class="n">01</span>Camping 44 S.A. · área de TI</div>
         <h3>El área de TI pasa a tener un plan</h3>
         <p>Definí la estrategia anual desde cero: análisis FODA, cinco ejes con metas trimestrales medibles y revisión periódica con la dirección.</p>
         <div class="res"><b>Resultado</b><span>El primer plan formal de TI de la empresa: prioridades acordadas y verificables, no urgencias.</span></div>
       </article>
       <article class="card hov case k-gob rv d1">
-        <div class="case-ctx"><span class="n">02</span>Empresa comercial regulada · sistema de calidad</div>
+        <div class="case-ctx"><span class="n">02</span>Camping 44 S.A. · sistema de calidad</div>
         <h3>La seguridad deja de ser criterio personal</h3>
         <p>Escribí el proceso de seguridad informática del área y logré su aprobación dentro del sistema de gestión de calidad, con formularios de registro para cada alta, baja y entrega.</p>
         <div class="res"><b>Resultado</b><span>Seguridad con evidencia auditable, que ya no depende de que alguien se acuerde.</span></div>
       </article>
       <article class="card hov case k-gws rv">
-        <div class="case-ctx"><span class="n">03</span>Empresa comercial regulada · desarrollo propio</div>
+        <div class="case-ctx"><span class="n">03</span>Camping 44 S.A. · desarrollo propio</div>
         <h3>Lo que no se registraba, ahora se mide</h3>
         <p>Construí la mesa de ayuda en lugar de comprarla. Con ella empecé a medir tiempos de resolución, cumplimiento de plazos y carga de trabajo por área.</p>
         <div class="res"><b>Resultado</b><span>Esos indicadores son hoy la base del reporte a la dirección.</span></div>
       </article>
       <article class="card hov case k-odoo rv d1">
-        <div class="case-ctx"><span class="n">04</span>Empresa comercial regulada · Odoo</div>
+        <div class="case-ctx"><span class="n">04</span>Camping 44 S.A. · Odoo</div>
         <h3>El ERP bajo control antes de migrar</h3>
         <p>Administración funcional completa de Odoo: configuraciones, Studio, reportes QWeb y pruebas de aceptación antes de cada liberación, más una herramienta propia que mide la deuda técnica.</p>
         <div class="res"><b>Resultado</b><span>Los riesgos de la migración se conocen antes del cambio de versión, no durante.</span></div>
@@ -1031,7 +1095,7 @@ a.ci:hover{border-color:var(--cyan);color:var(--ink);background:rgba(11,31,51,.9
     </div>
     <div class="about">
       <div class="about-txt rv">
-        <p class="big">Soy analista de sistemas con más de cinco años en tecnología, los últimos tres liderando áreas de TI como <strong>responsable único</strong>: primero en una operación distribuida en nueve localidades del país, y hoy en una empresa regulada, reportando directamente a la gerencia general.</p>
+        <p class="big">Soy analista de sistemas con más de cinco años en tecnología, los últimos tres liderando áreas de TI como <strong>responsable único</strong>: primero en una operación distribuida en nueve localidades del país, y hoy en Camping 44, reportando directamente a la gerencia general.</p>
         <p>Mi trabajo suele empezar en el mismo lugar: un área de TI que funciona por costumbre, sin registro ni procedimiento. Lo que hago es convertir eso en algo <strong>documentado, auditable y medible</strong>.</p>
         <p class="quote">La tecnología deja de ser una herramienta suelta y pasa a estar gobernada.</p>
         <p>En lo técnico administro el ERP a nivel funcional, la infraestructura y la seguridad de la información. Cuando comprar una solución no tiene sentido, la desarrollo. También me toca la parte menos técnica: evaluar proveedores con números sobre la mesa, negociar alcances, capacitar usuarios y explicarle a la dirección qué pasa con la tecnología.</p>
@@ -1039,7 +1103,7 @@ a.ci:hover{border-color:var(--cyan);color:var(--ink);background:rgba(11,31,51,.9
       <aside class="card ficha rv d1" aria-label="Ficha">
         <h3>Ficha</h3>
         <dl>
-          <div><dt>Rol actual</dt><dd>Responsable de TI · empresa comercial regulada</dd></div>
+          <div><dt>Rol actual</dt><dd>Responsable de TI · Camping 44 S.A.</dd></div>
           <div><dt>Base</dt><dd>Asunción, Paraguay</dd></div>
           <div><dt>Foco</dt><dd>Odoo, automatización, gobierno de TI y seguridad</dd></div>
           <div><dt>Idiomas</dt><dd>Español nativo · guaraní e inglés intermedio</dd></div>
@@ -1057,7 +1121,7 @@ a.ci:hover{border-color:var(--cyan);color:var(--ink);background:rgba(11,31,51,.9
         <div><div class="when">Nov 2025 – hoy</div><div class="now"><span class="dot"></span>Puesto actual</div></div>
         <div>
           <h3>Responsable de TI</h3>
-          <p class="org">Empresa comercial regulada · Asunción</p>
+          <p class="org">Camping 44 S.A. · Asunción</p>
           <ul>
             <li>Responsable único del área, con reporte directo a la gerencia general.</li>
             <li>Plan estratégico anual, proceso de seguridad dentro del sistema de calidad y mesa de ayuda con indicadores.</li>
