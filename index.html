@@ -53,7 +53,8 @@
       "areaServed": { "@type": "Country", "name": "Paraguay" },
       "telephone": "+595991635438",
       "serviceType": ["Automatización en Odoo", "Sistemas internos en Google Workspace", "Reportes y tableros automáticos"]
-    }
+    },
+    {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Tengo que comprar licencias nuevas?", "acceptedAnswer": {"@type": "Answer", "text": "En general, no. Trabajo sobre lo que tu empresa ya paga, como Odoo o Google Workspace. Si algo necesita un costo extra, te lo digo antes y por escrito."}}, {"@type": "Question", "name": "¿Y si no uso Odoo?", "acceptedAnswer": {"@type": "Answer", "text": "Muchas automatizaciones funcionan solo con Google Workspace: planillas, formularios y correo. Si usás otro sistema, vemos juntos si tiene una forma de conectarse."}}, {"@type": "Question", "name": "¿Cuánto cuesta?", "acceptedAnswer": {"@type": "Answer", "text": "Depende del alcance. Después del diagnóstico te paso una propuesta por escrito con el precio y el plazo, antes de empezar."}}, {"@type": "Question", "name": "¿Cuánto tarda un proyecto?", "acceptedAnswer": {"@type": "Answer", "text": "Una automatización puntual puede estar en días; un sistema más grande, en semanas. El plazo queda escrito en la propuesta."}}, {"@type": "Question", "name": "¿Qué pasa si después necesito cambios?", "acceptedAnswer": {"@type": "Answer", "text": "Como todo queda documentado, los ajustes son rápidos. Los cambios nuevos se cotizan aparte, con el mismo criterio: alcance claro antes de empezar."}}, {"@type": "Question", "name": "¿Trabajás de forma remota?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Estoy en Asunción, pero la mayor parte del trabajo se hace a distancia, con reuniones por videollamada. Sostuve nueve sedes a cientos de kilómetros, así que estoy acostumbrado."}}, {"@type": "Question", "name": "¿Mis datos están seguros?", "acceptedAnswer": {"@type": "Answer", "text": "Trabajo con accesos mínimos y usuarios dedicados, y si hace falta firmamos un acuerdo de confidencialidad. Es lo mismo que les exijo a los proveedores en mi trabajo."}}]}
   ]
 }
 </script>
@@ -306,6 +307,66 @@ section[id],[id].anchor{scroll-margin-top:84px}
 .pj-more-wrap{display:flex;justify-content:center;margin-top:24px}
 .pj-more-wrap .btn[hidden]{display:none}
 
+
+/* cómo trabajamos juntos */
+.flow-h{margin:clamp(56px,8vh,80px) 0 28px;display:flex;flex-direction:column;gap:10px;max-width:62ch}
+.flow-h h3{font-size:clamp(24px,2.6vw,32px)}
+.flow-h p{color:var(--muted);font-size:16.5px}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;position:relative;list-style:none;margin:0;padding:0}
+.flow::before{content:"";position:absolute;top:27px;left:6%;right:6%;height:2px;background:linear-gradient(90deg,var(--cyan),var(--odoo),var(--gws),var(--web),var(--gob));opacity:.45}
+.fs{--a:var(--cyan);position:relative;display:flex;flex-direction:column;gap:10px}
+.fs:nth-child(2){--a:var(--odoo)}.fs:nth-child(3){--a:var(--gws)}.fs:nth-child(4){--a:var(--web)}.fs:nth-child(5){--a:var(--gob)}
+.fs .fn{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:var(--navy);border:2px solid var(--a);color:var(--a);font-family:var(--display);font-size:19px;position:relative;z-index:1;box-shadow:0 0 0 6px var(--navy)}
+.fs h4{margin:6px 0 0;font-family:var(--display);font-weight:400;font-size:17px;line-height:1.25}
+.fs p{font-size:14.5px;line-height:1.55;color:var(--muted)}
+
+/* diferencial */
+.diff{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.dp{padding:clamp(26px,3vw,38px);display:flex;flex-direction:column;gap:16px}
+.dp-tag{display:inline-flex;align-self:flex-start;align-items:center;gap:8px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;padding:5px 12px;border-radius:999px}
+.dp-tag.t-ai{color:var(--odoo);background:var(--odoo-soft)}
+.dp-tag.t-man{color:var(--gws);background:var(--gws-soft)}
+.dp h3{font-size:clamp(22px,2.3vw,28px);line-height:1.15}
+.dp>p{font-size:16px;line-height:1.65;color:var(--body)}
+.dp .checks{border-top:0;padding-top:0;margin-top:0}
+.dp.ai .checks li::before{background-color:var(--odoo-soft);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.3l2.2 2.2 4.8-5' fill='none' stroke='%23A78BFA' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.dp.man .checks li::before{background-color:var(--gws-soft);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.3l2.2 2.2 4.8-5' fill='none' stroke='%2334D399' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.term{border-radius:14px;background:#071626;border:1px solid var(--line);overflow:hidden;font-family:var(--mono);font-size:12.5px;line-height:1.7}
+.term-bar{display:flex;align-items:center;gap:7px;padding:10px 14px;border-bottom:1px solid var(--line);background:rgba(15,44,68,.6)}
+.term-bar i{width:9px;height:9px;border-radius:50%;background:var(--line-2)}
+.term-bar span{margin-left:8px;font-size:11px;color:var(--faint)}
+.term-b{padding:14px 16px;color:var(--body)}
+.term-b .u{color:var(--odoo)}
+.term-b .ok{color:var(--gws)}
+.term-b .dim{color:var(--faint)}
+.term-b .cur{display:inline-block;width:8px;height:14px;background:var(--cyan);vertical-align:-2px;animation:blink 1.1s steps(1) infinite}
+.paper{border-radius:12px;background:#F2F4F6;color:#0B1F33;padding:18px;box-shadow:0 24px 40px -24px rgba(0,0,0,.7);font-size:12px;line-height:1.45;transform:rotate(-1deg)}
+.paper-h{display:flex;justify-content:space-between;align-items:center;padding-bottom:10px;border-bottom:2px solid #0B1F33;margin-bottom:12px}
+.paper-h b{font-family:var(--display);font-weight:400;font-size:13px}
+.paper-h span{font-size:10.5px;color:#4a6378;white-space:nowrap}
+.pstep{display:grid;grid-template-columns:24px 1fr;gap:10px;margin-bottom:12px}
+.pstep:last-child{margin-bottom:0}
+.pstep .pn{width:24px;height:24px;border-radius:50%;background:#0B1F33;color:#F2F4F6;display:grid;place-items:center;font-weight:600;font-size:11px}
+.pstep strong{display:block;font-weight:600;font-size:12.5px}
+.shot{margin-top:7px;height:58px;border-radius:7px;background:#dfe5ea;border:1px solid #c9d2da;position:relative;overflow:hidden}
+.shot::before{content:"";position:absolute;left:10px;top:10px;width:46%;height:8px;border-radius:4px;background:#c3ccd5;box-shadow:0 16px 0 #c3ccd5,0 32px 0 #cfd7de}
+.shot .hl{position:absolute;right:14px;top:14px;width:74px;height:26px;border-radius:6px;border:2.5px solid #e0245e}
+.shot .hl::after{content:"";position:absolute;left:-30px;top:8px;width:24px;height:2.5px;background:#e0245e;border-radius:2px}
+.shot.err{background:#fde8ec;border-color:#f4b6c4}
+.shot.err::before{background:#f4b6c4;box-shadow:none;width:60%}
+.paper-f{display:flex;gap:8px;margin-top:14px}
+.paper-f span{font-size:10.5px;padding:3px 9px;border-radius:999px;background:#0B1F33;color:#F2F4F6}
+
+/* preguntas frecuentes */
+.faq{display:flex;flex-direction:column;gap:10px;max-width:880px}
+.faq details{border:1px solid var(--line);border-radius:14px;background:var(--navy);transition:border-color .2s ease}
+.faq details[open]{border-color:rgba(63,200,216,.4)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 24px;font-weight:500;font-size:16.5px;color:var(--ink)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";flex:none;width:12px;height:12px;border-right:2px solid var(--cyan);border-bottom:2px solid var(--cyan);transform:rotate(45deg) translate(-3px,-3px);transition:transform .2s ease}
+.faq details[open] summary::after{transform:rotate(-135deg) translate(-3px,-3px)}
+.faq details p{padding:0 24px 22px;color:var(--body);font-size:15.5px;line-height:1.65;max-width:72ch}
+
 /* casos */
 .cases{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 .case{padding:clamp(24px,3vw,34px);display:flex;flex-direction:column;gap:16px}
@@ -421,6 +482,9 @@ a.ci:hover{border-color:var(--cyan);color:var(--ink);background:rgba(11,31,51,.9
   .steps::before{display:none}
   .pillars{grid-template-columns:1fr 1fr}
   .pj-grid{grid-template-columns:1fr 1fr}
+  .flow{grid-template-columns:repeat(3,1fr);row-gap:32px}
+  .flow::before{display:none}
+  .diff{grid-template-columns:1fr}
   .contact-grid{grid-template-columns:1fr 1fr}
   .contact-grid .ci:first-child{grid-column:span 2}
   .tools{grid-template-columns:1fr 1fr}
@@ -461,6 +525,11 @@ a.ci:hover{border-color:var(--cyan);color:var(--ink);background:rgba(11,31,51,.9
   .b-2,.b-cta{grid-column:span 6}
   .steps,.pillars{grid-template-columns:1fr}
   .pj-grid{grid-template-columns:1fr}
+  .flow{grid-template-columns:1fr;gap:22px}
+  .fs{display:grid;grid-template-columns:56px 1fr;column-gap:16px}
+  .fs .fn{grid-row:span 2}
+  .fs h4{margin-top:4px}
+  .paper{transform:none}
   .pj-filters{flex-wrap:nowrap;overflow-x:auto;margin-left:calc(var(--pad) * -1);margin-right:calc(var(--pad) * -1);padding:2px var(--pad) 6px;scrollbar-width:none}
   .pf{flex:none}
   .tools{grid-template-columns:1fr}
@@ -501,11 +570,10 @@ a.ci:hover{border-color:var(--cyan);color:var(--ink);background:rgba(11,31,51,.9
     </a>
     <nav class="nav-links" aria-label="Secciones">
       <a href="#servicios">Servicios</a>
-      <a href="#desarrollos">Desarrollos</a>
       <a href="#proyectos">Proyectos</a>
       <a href="#casos">Casos</a>
-      <a href="#metodo">Método</a>
       <a href="#sobre-mi">Sobre mí</a>
+      <a href="#preguntas">Preguntas</a>
       <a class="btn btn-primary" href="#contacto">Hablemos</a>
     </nav>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu-movil" aria-label="Abrir menú"><span></span></button>
@@ -517,6 +585,7 @@ a.ci:hover{border-color:var(--cyan);color:var(--ink);background:rgba(11,31,51,.9
     <a href="#casos">Casos</a>
     <a href="#metodo">Método</a>
     <a href="#sobre-mi">Sobre mí</a>
+    <a href="#preguntas">Preguntas</a>
     <a class="btn btn-primary" href="#contacto">Hablemos</a>
   </nav>
 </header>
@@ -653,6 +722,18 @@ a.ci:hover{border-color:var(--cyan);color:var(--ink);background:rgba(11,31,51,.9
         </ul>
       </article>
     </div>
+
+    <div class="flow-h rv">
+      <h3 id="t-proceso">Cómo trabajamos juntos</h3>
+      <p>Desde que me escribís hasta que tu equipo lo usa solo.</p>
+    </div>
+    <ol class="flow" aria-labelledby="t-proceso">
+      <li class="fs rv"><span class="fn">1</span><h4>Diagnóstico</h4><p>30 minutos para entender tu proceso y decirte qué conviene automatizar primero.</p></li>
+      <li class="fs rv d1"><span class="fn">2</span><h4>Propuesta por escrito</h4><p>Alcance, plazo y precio claros antes de empezar. Sin sorpresas.</p></li>
+      <li class="fs rv d2"><span class="fn">3</span><h4>Desarrollo con avances</h4><p>Ves avances reales y lo probás con tu equipo antes de usarlo en serio.</p></li>
+      <li class="fs rv d3"><span class="fn">4</span><h4>Entrega y capacitación</h4><p>Manual en PDF y video, paso a paso, y capacitación para quienes lo van a usar.</p></li>
+      <li class="fs rv"><span class="fn">5</span><h4>Acompañamiento</h4><p>Después de la entrega sigo disponible para ajustes y mejoras.</p></li>
+    </ol>
     <p class="note rv"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2.5 2.5"/></svg>Cada proyecto se cotiza por escrito según el alcance, antes de empezar.</p>
 
     <div class="cta-band rv">
@@ -817,11 +898,63 @@ a.ci:hover{border-color:var(--cyan);color:var(--ink);background:rgba(11,31,51,.9
   </div>
 </section>
 
-<!-- ================= CASOS ================= -->
-<section class="sec alt" id="casos" aria-labelledby="t-casos">
+<!-- ================= DIFERENCIAL ================= -->
+<section class="sec alt" id="diferencial" aria-labelledby="t-diff">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="eyebrow"><span class="num">05</span><span class="eb-line"></span>Casos</div>
+      <div class="eyebrow"><span class="num">05</span><span class="eb-line"></span>Por qué conmigo</div>
+      <h2 id="t-diff">Rápido para construir. Claro para usar.</h2>
+      <p class="sub">Dos cosas que me diferencian: uso inteligencia artificial para desarrollar más rápido, y todo lo que entrego viene con un manual que entiende cualquiera.</p>
+    </div>
+    <div class="diff">
+      <article class="card dp ai rv">
+        <span class="dp-tag t-ai">Desarrollo con IA</span>
+        <h3>Lo que antes llevaba meses, en semanas</h3>
+        <p>Construyo con herramientas de inteligencia artificial como Claude Code: apps web, scripts e integraciones con tu ERP. La IA acelera la parte repetitiva; las decisiones, las pruebas y el control los hago yo.</p>
+        <ul class="checks">
+          <li>Apps web con Next.js, Supabase y Vercel, y automatizaciones en Apps Script</li>
+          <li>Todo queda documentado y en cuentas de tu empresa, no en las mías</li>
+          <li>Formación continua: diplomado en IA de Senpai Academy</li>
+        </ul>
+        <div class="term" aria-hidden="true">
+          <div class="term-bar"><i></i><i></i><i></i><span>sesión de desarrollo · ejemplo</span></div>
+          <div class="term-b">
+            <div><span class="u">›</span> El reporte de stock tiene que excluir los depósitos no vendibles</div>
+            <div class="dim">  revisando depósitos y reglas del reporte…</div>
+            <div><span class="ok">✓</span> Regla aplicada en el reporte</div>
+            <div><span class="ok">✓</span> Prueba contra los datos de ayer: OK</div>
+            <div><span class="ok">✓</span> Instructivo actualizado</div>
+            <div><span class="u">›</span> <span class="cur"></span></div>
+          </div>
+        </div>
+      </article>
+      <article class="card dp man rv d1">
+        <span class="dp-tag t-man">Así entrego un manual</span>
+        <h3>Tu equipo lo usa sin llamarme</h3>
+        <p>Cada entrega incluye un manual simple, paso a paso, con capturas reales del sistema y los errores que pueden aparecer, más un video corto. Pensado para quien lo va a usar todos los días, no para técnicos.</p>
+        <ul class="checks">
+          <li>Capturas con flechas y recuadros en lo que hay que tocar</li>
+          <li>Qué hacer cuando aparece un error, con la pantalla real</li>
+          <li>PDF para imprimir y video para ver desde el celular</li>
+        </ul>
+        <div class="paper" role="img" aria-label="Ejemplo ilustrativo de una página de manual paso a paso">
+          <div aria-hidden="true">
+            <div class="paper-h"><b>Manual de uso · Solicitud de compra</b><span>pág. 2</span></div>
+            <div class="pstep"><span class="pn">1</span><div><strong>Entrá al formulario desde la intranet</strong><div class="shot"><span class="hl"></span></div></div></div>
+            <div class="pstep"><span class="pn">2</span><div><strong>Si aparece este aviso, revisá el campo marcado</strong><div class="shot err"></div></div></div>
+            <div class="paper-f"><span>PDF</span><span>Video · 3 min</span></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CASOS ================= -->
+<section class="sec" id="casos" aria-labelledby="t-casos">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow"><span class="num">06</span><span class="eb-line"></span>Casos</div>
       <h2 id="t-casos">Qué dejé instalado</h2>
       <p class="sub">Frentes que abrí como responsable único de TI. En todos, el punto de partida era el mismo: sin registro, sin procedimiento y sin forma de saber dónde estaban los riesgos.</p>
     </div>
@@ -867,10 +1000,10 @@ a.ci:hover{border-color:var(--cyan);color:var(--ink);background:rgba(11,31,51,.9
 </section>
 
 <!-- ================= MÉTODO ================= -->
-<section class="sec" id="metodo" aria-labelledby="t-metodo">
+<section class="sec alt" id="metodo" aria-labelledby="t-metodo">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="eyebrow"><span class="num">06</span><span class="eb-line"></span>Método</div>
+      <div class="eyebrow"><span class="num">07</span><span class="eb-line"></span>Método</div>
       <h2 id="t-metodo">Los mismos cuatro pasos, siempre</h2>
       <p class="sub">El orden importa: medir antes de entender produce números que nadie cree.</p>
     </div>
@@ -893,7 +1026,7 @@ a.ci:hover{border-color:var(--cyan);color:var(--ink);background:rgba(11,31,51,.9
 <section class="sec" id="sobre-mi" aria-labelledby="t-sobre">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="eyebrow"><span class="num">07</span><span class="eb-line"></span>Sobre mí</div>
+      <div class="eyebrow"><span class="num">08</span><span class="eb-line"></span>Sobre mí</div>
       <h2 id="t-sobre">Quién soy y cómo trabajo</h2>
     </div>
     <div class="about">
@@ -985,8 +1118,27 @@ a.ci:hover{border-color:var(--cyan);color:var(--ink);background:rgba(11,31,51,.9
   </div>
 </section>
 
+<!-- ================= PREGUNTAS ================= -->
+<section class="sec alt" id="preguntas" aria-labelledby="t-faq">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow"><span class="num">09</span><span class="eb-line"></span>Preguntas frecuentes</div>
+      <h2 id="t-faq">Lo que me suelen preguntar</h2>
+    </div>
+    <div class="faq">
+      <details class="rv"><summary>¿Tengo que comprar licencias nuevas?</summary><p>En general, no. Trabajo sobre lo que tu empresa ya paga, como Odoo o Google Workspace. Si algo necesita un costo extra, te lo digo antes y por escrito.</p></details>
+      <details class="rv"><summary>¿Y si no uso Odoo?</summary><p>Muchas automatizaciones funcionan solo con Google Workspace: planillas, formularios y correo. Si usás otro sistema, vemos juntos si tiene una forma de conectarse.</p></details>
+      <details class="rv"><summary>¿Cuánto cuesta?</summary><p>Depende del alcance. Después del diagnóstico te paso una propuesta por escrito con el precio y el plazo, antes de empezar.</p></details>
+      <details class="rv"><summary>¿Cuánto tarda un proyecto?</summary><p>Una automatización puntual puede estar en días; un sistema más grande, en semanas. El plazo queda escrito en la propuesta.</p></details>
+      <details class="rv"><summary>¿Qué pasa si después necesito cambios?</summary><p>Como todo queda documentado, los ajustes son rápidos. Los cambios nuevos se cotizan aparte, con el mismo criterio: alcance claro antes de empezar.</p></details>
+      <details class="rv"><summary>¿Trabajás de forma remota?</summary><p>Sí. Estoy en Asunción, pero la mayor parte del trabajo se hace a distancia, con reuniones por videollamada. Sostuve nueve sedes a cientos de kilómetros, así que estoy acostumbrado.</p></details>
+      <details class="rv"><summary>¿Mis datos están seguros?</summary><p>Trabajo con accesos mínimos y usuarios dedicados, y si hace falta firmamos un acuerdo de confidencialidad. Es lo mismo que les exijo a los proveedores en mi trabajo.</p></details>
+    </div>
+  </div>
+</section>
+
 <!-- ================= CONTACTO ================= -->
-<section class="sec" id="contacto" aria-labelledby="t-contacto" style="padding-top:0">
+<section class="sec" id="contacto" aria-labelledby="t-contacto">
   <div class="wrap">
     <div class="contact rv">
       <div class="script" aria-hidden="true">Hablemos</div>
