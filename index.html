@@ -392,6 +392,23 @@ section[id],[id].anchor{scroll-margin-top:84px}
 .year-cta{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 .year-cta small{color:var(--faint);font-size:13px}
 
+
+.help{margin-top:clamp(28px,4vw,44px);display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(20px,3vw,40px);align-items:end;padding-top:clamp(24px,3vw,36px);border-top:1px solid var(--line-2)}
+.help h3{font-size:clamp(19px,2vw,23px);line-height:1.25}
+.help .hs{margin-top:6px;font-size:13.5px;color:var(--faint)}
+.hstats{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.hst{padding:14px 16px;border-radius:12px;background:rgba(11,31,51,.6);border:1px solid var(--line)}
+.hst b{display:block;font-family:var(--display);font-weight:400;font-size:26px;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
+.hst span{display:block;margin-top:6px;font-size:12.5px;line-height:1.35;color:var(--muted)}
+.hchart{display:flex;align-items:flex-end;gap:10px;height:190px;padding:0 4px;border-bottom:1px solid var(--line-2)}
+.hb{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:6px;position:relative}
+.hb i{display:block;width:100%;max-width:46px;border-radius:7px 7px 2px 2px;background:linear-gradient(180deg,var(--cyan),rgba(63,200,216,.25));transform-origin:bottom;transition:transform 1s cubic-bezier(.2,.7,.3,1)}
+.hb:last-child i{background:linear-gradient(180deg,var(--odoo),rgba(167,139,250,.3))}
+.hv{font-size:12px;color:var(--body);font-variant-numeric:tabular-nums}
+.hm{position:absolute;bottom:-24px;font-size:11.5px;color:var(--faint)}
+.hcap{margin-top:34px;font-size:12.5px;color:var(--faint)}
+.js .year:not(.in) .hb i{transform:scaleY(.05)}
+
 /* casos */
 .cases{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 .case{padding:clamp(24px,3vw,34px);display:flex;flex-direction:column;gap:16px}
@@ -511,6 +528,7 @@ a.ci:hover{border-color:var(--cyan);color:var(--ink);background:rgba(11,31,51,.9
   .flow::before{display:none}
   .diff{grid-template-columns:1fr}
   .year-top{grid-template-columns:1fr}
+  .help{grid-template-columns:1fr}
   .ychg{grid-template-columns:1fr 1fr}
   .contact-grid{grid-template-columns:1fr 1fr}
   .contact-grid .ci:first-child{grid-column:span 2}
@@ -554,6 +572,8 @@ a.ci:hover{border-color:var(--cyan);color:var(--ink);background:rgba(11,31,51,.9
   .pj-grid{grid-template-columns:1fr}
   .ychg{grid-template-columns:1fr}
   .yn{padding:16px}
+  .hchart{gap:6px;height:160px}
+  .hst b{font-size:22px}
   .yn .l{font-size:12.5px}
   .year .kicker{border-radius:14px}
   .flow{grid-template-columns:1fr;gap:22px}
@@ -580,6 +600,7 @@ a.ci:hover{border-color:var(--cyan);color:var(--ink);background:rgba(11,31,51,.9
   *,*::before,*::after{animation:none!important;transition:none!important}
   .js .rv{opacity:1;transform:none}
   .js .bento:not(.in) .bar i{transform:none}
+  .js .year:not(.in) .hb i{transform:none}
   .js .steps:not(.in)::before{transform:none}
 }
 @media print{
@@ -700,6 +721,22 @@ a.ci:hover{border-color:var(--cyan);color:var(--ink);background:rgba(11,31,51,.9
         <div class="yc" role="listitem"><span class="from">Pedidos por WhatsApp</span><span class="arrow" aria-hidden="true">↓</span><span class="to">Mesa de ayuda con plazos e indicadores</span></div>
         <div class="yc" role="listitem"><span class="from">Controles a mano</span><span class="arrow" aria-hidden="true">↓</span><span class="to">Reglas automáticas en el ERP</span></div>
         <div class="yc" role="listitem"><span class="from">Software contratado</span><span class="arrow" aria-hidden="true">↓</span><span class="to">Intranet y apps propias</span></div>
+      </div>
+      <div class="help">
+        <div>
+          <h3>La mesa de ayuda, en números reales</h3>
+          <p class="hs">Pedidos registrados con ticket, de abril a noviembre de 2026.</p>
+          <div class="hstats" role="list">
+            <div class="hst" role="listitem"><b>128</b><span>pedidos gestionados con ticket</span></div>
+            <div class="hst" role="listitem"><b>8 de 10</b><span>ya resueltos (99 pedidos)</span></div>
+            <div class="hst" role="listitem"><b>14</b><span>áreas de la empresa atendidas</span></div>
+            <div class="hst" role="listitem"><b>19</b><span>resueltos en el mismo día</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="hchart" role="img" aria-label="Pedidos por mes: abril 9, mayo 8, junio 6, julio 16, agosto 28, septiembre 11, octubre 20, noviembre (hasta el día 20) 30"><div class="hb"><span class="hv">9</span><i style="height:30%"></i><span class="hm">Abr</span></div><div class="hb"><span class="hv">8</span><i style="height:27%"></i><span class="hm">May</span></div><div class="hb"><span class="hv">6</span><i style="height:20%"></i><span class="hm">Jun</span></div><div class="hb"><span class="hv">16</span><i style="height:53%"></i><span class="hm">Jul</span></div><div class="hb"><span class="hv">28</span><i style="height:93%"></i><span class="hm">Ago</span></div><div class="hb"><span class="hv">11</span><i style="height:37%"></i><span class="hm">Sep</span></div><div class="hb"><span class="hv">20</span><i style="height:67%"></i><span class="hm">Oct</span></div><div class="hb"><span class="hv">30</span><i style="height:100%"></i><span class="hm">Nov</span></div></div>
+          <p class="hcap">La demanda se triplicó: de 9 pedidos en abril a 30 en lo que va de noviembre.</p>
+        </div>
       </div>
       <div class="year-cta">
         <a class="btn btn-primary" href="#proyectos">Ver todo lo que construí</a>
@@ -854,7 +891,7 @@ a.ci:hover{border-color:var(--cyan);color:var(--ink);background:rgba(11,31,51,.9
               <div class="tk"><code>#0413</code><span class="t">Impresora no imprime</span><span class="st wip">En curso</span></div>
               <div class="tk"><code>#0414</code><span class="t">Acceso a reporte</span><span class="st ok">Resuelto</span></div>
             </div>
-            <div class="sla"><div class="sla-l"><span>Dentro del plazo</span><b>94%</b></div><div class="track"><i></i></div></div>
+            <div class="sla"><div class="sla-l"><span>Resueltos</span><b>79%</b></div><div class="track"><i style="width:79%"></i></div></div>
           </div>
         </div>
         <div class="stack"><span class="tag t-gws">Apps Script</span><span class="tag t-gws">Gmail</span><span class="tag t-gws">Sheets</span></div>
@@ -1039,7 +1076,7 @@ a.ci:hover{border-color:var(--cyan);color:var(--ink);background:rgba(11,31,51,.9
         <div class="case-ctx"><span class="n">03</span>Camping 44 S.A. · desarrollo propio</div>
         <h3>Lo que no se registraba, ahora se mide</h3>
         <p>Construí la mesa de ayuda en lugar de comprarla. Con ella empecé a medir tiempos de resolución, cumplimiento de plazos y carga de trabajo por área.</p>
-        <div class="res"><b>Resultado</b><span>Esos indicadores son hoy la base del reporte a la dirección.</span></div>
+        <div class="res"><b>Resultado</b><span>128 pedidos registrados desde abril, de 14 áreas, y 8 de cada 10 ya resueltos. Es la base del reporte a la dirección.</span></div>
       </article>
       <article class="card hov case k-odoo rv d1">
         <div class="case-ctx"><span class="n">04</span>Camping 44 S.A. · Odoo</div>
