@@ -453,6 +453,22 @@ section[id],[id].anchor{scroll-margin-top:84px}
 .js .dp.in .term-b>div{animation:lineIn .35s ease forwards;animation-delay:calc(var(--i) * .55s + .3s)}
 @keyframes lineIn{to{opacity:1;transform:none}}
 
+
+/* línea de tiempo del año */
+.tl-h{margin:clamp(48px,7vh,72px) 0 26px;display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.tl-h h3{font-size:clamp(22px,2.4vw,30px)}
+.tl-h p{color:var(--faint);font-size:14px}
+.tl{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,1fr);gap:14px;position:relative}
+.tl::before{content:"";position:absolute;left:8px;right:8px;top:9px;height:2px;background:linear-gradient(90deg,var(--cyan),var(--gws),var(--odoo),var(--web),var(--gob),var(--cyan));opacity:.6;transform-origin:left;transition:transform 1.4s cubic-bezier(.3,.7,.3,1)}
+.js .tl:not(.in)::before{transform:scaleX(0)}
+.tli{--a:var(--cyan);position:relative;padding-top:34px}
+.tli::before{content:"";position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:var(--navy);border:3px solid var(--a);box-shadow:0 0 0 5px var(--navy),0 0 18px color-mix(in srgb,var(--a) 60%,transparent)}
+.tli.k-gws{--a:var(--gws)}.tli.k-odoo{--a:var(--odoo)}.tli.k-web{--a:var(--web)}.tli.k-gob{--a:var(--gob)}
+.tli time{font-family:var(--mono);font-size:12px;color:var(--a);letter-spacing:.04em;text-transform:uppercase}
+.tli h4{margin:8px 0 0;font-family:var(--display);font-weight:400;font-size:16.5px;line-height:1.25}
+.tli p{margin-top:8px;font-size:14px;line-height:1.55;color:var(--muted)}
+.tli:last-child::before{background:var(--a)}
+
 /* casos */
 .cases{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 .case{padding:clamp(24px,3vw,34px);display:flex;flex-direction:column;gap:16px}
@@ -573,6 +589,8 @@ a.ci:hover{border-color:var(--cyan);color:var(--ink);background:rgba(11,31,51,.9
   .diff{grid-template-columns:1fr}
   .year-top{grid-template-columns:1fr}
   .help{grid-template-columns:1fr}
+  .tl{grid-template-columns:repeat(3,1fr);row-gap:34px}
+  .tl::before{display:none}
   .ychg{grid-template-columns:1fr 1fr}
   .contact-grid{grid-template-columns:1fr 1fr}
   .contact-grid .ci:first-child{grid-column:span 2}
@@ -619,6 +637,10 @@ a.ci:hover{border-color:var(--cyan);color:var(--ink);background:rgba(11,31,51,.9
   .ychg{grid-template-columns:1fr}
   .yn{padding:16px}
   .hchart{gap:6px;height:160px}
+  .tl{grid-template-columns:1fr;row-gap:26px;padding-left:4px}
+  .tli{padding:0 0 0 38px}
+  .tli::after{content:"";position:absolute;left:9px;top:24px;bottom:-26px;width:2px;background:var(--line-2)}
+  .tli:last-child::after{display:none}
   .hst b{font-size:22px}
   .yn .l{font-size:12.5px}
   .year .kicker{border-radius:14px}
@@ -648,6 +670,7 @@ a.ci:hover{border-color:var(--cyan);color:var(--ink);background:rgba(11,31,51,.9
   .js .bento:not(.in) .bar i{transform:none}
   .js .year:not(.in) .hb i{transform:none}
   .js .term-b>div{opacity:1;transform:none}
+  .js .tl:not(.in)::before{transform:none}
   .mq-track{width:auto;flex-wrap:wrap}
   .mq-track ul[aria-hidden]{display:none}
   .aur{display:none}
@@ -797,6 +820,15 @@ a.ci:hover{border-color:var(--cyan);color:var(--ink);background:rgba(11,31,51,.9
           <p class="hcap">La demanda se triplicó: de 9 pedidos en abril a 30 en lo que va de noviembre.</p>
         </div>
       </div>
+      <div class="tl-h"><h3>El año, mes a mes</h3><p>Hitos reales, con fecha de cierre en la ticketera.</p></div>
+      <ol class="tl" id="tl">
+          <li class="tli k-cyan"><time>Nov 2025</time><h4>Llegada</h4><p>Asumo como responsable único de TI, reportando a la gerencia general.</p></li>
+          <li class="tli k-gws"><time>Abr 2026</time><h4>Nace la mesa de ayuda</h4><p>Se registra el primer ticket: desde ahí, cada pedido queda medido.</p></li>
+          <li class="tli k-odoo"><time>Ago 2026</time><h4>Pico de demanda</h4><p>28 pedidos en un mes y las alertas de muestrarios funcionando en Odoo.</p></li>
+          <li class="tli k-web"><time>Sep 2026</time><h4>Todo a producción</h4><p>Visitas con GPS real, reporte de stock y rotación ABC y la web e-commerce del grupo.</p></li>
+          <li class="tli k-gws"><time>Oct 2026</time><h4>Tableros y comisiones</h4><p>Tablero de gestión comercial y motor de comisiones entregados.</p></li>
+          <li class="tli k-gob"><time>Nov 2026</time><h4>Primer año</h4><p>Taller de reparaciones en Odoo, bloqueo de pedidos facturados e intranet propia lista para lanzar.</p></li>
+      </ol>
       <div class="year-cta">
         <a class="btn btn-primary" href="#proyectos">Ver todo lo que construí</a>
         <small>Sin datos internos ni de clientes.</small>
@@ -1346,7 +1378,7 @@ a.ci:hover{border-color:var(--cyan);color:var(--ink);background:rgba(11,31,51,.9
   var hasIO = 'IntersectionObserver' in window;
 
   // Revelado al hacer scroll
-  var items = document.querySelectorAll('.rv, #bento, #steps');
+  var items = document.querySelectorAll('.rv, #bento, #steps, #tl');
   if (!hasIO || reduce) {
     items.forEach(function (el) { el.classList.add('in'); });
   } else {
